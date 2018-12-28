@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1. Создать объект с полем product, равным ‘iphone’
+        let productInfo = {
+            product: 'iphone'
+        }
+        // 2. Добавить в объект поле price, равное 1000 и поле currency, равное ‘dollar’
+        productInfo.price = 1000;
+        productInfo['currency'] = 'dollar';
+        // 3. Добавить поле details, которое будет содержать объект с полями model и color
+        productInfo.details = { model: '', color: ''};
+        
+        
+        // Чему равно а, почему?
+
+        let a = 0 || 'string'; // a = 'string', оператор || останавливается на первой правде, Boolean(0) - false, Boolean('string') - true.
+        let a = 1 && 'string'; // a = 'string', опереатор && вычесляет слева направо, если все истинные то возвращает последнее значение.
+        let a = null || 25; // a = 25, оператор || останавливается на первой правде, Boolean(null) - false
+        let a = null && 25; // a = null, оператор && останавливается на первой лжи, Boolean(null) - false
+        let a = null || 0 || 35;// a = 35, оператор || ищет первую правду, Boolean(null) - false, Boolean(0) - false
+        let a = null && 0 && 35; // a = null, оператор && останавливается на первой лжи, Boolean(null) - false
+
+        // Что отобразится в консоли. Почему?
+
+        12 + 14 + '12' // "2612"; сразу идет математическая операция(12 + 14) получаем 26, но бинарный оператор + не вызывает численного преобразования, если один из операндов является строкой, поэтому 26 преобразуется в строку и происходит склеивание строк
+        3 + 2 - '1' // 4; происходит преобразование строки '1' в число с помощью арифмеического оператора -, опретор - работает только с числами.
+        '3' + 2 - 1 // 31; в первой части выражения получается строка '32'(бинарный оператор + не вызывает численного преобразования, если один из операндов строка), потом происходит преобразование строки в число с помощью арифмеического оператора -
+        true + 2 // 3; true при численном преобразовании становится 1
+        +'10' + 1 // 11; +'10' - унарный плюс преобразовывает строку в число, получается 10 + 1 =11
+        undefined + 2 // NaN; undefined при численном преобразовании становится NaN
+        null + 5 // 5; null при численном преобразовании становится 0
+        true + undefined // NaN; true при численном преобразовании становится 1, undefined при численном преобразовании становится NaN
+
+        // 1. Если переменная равна “hidden”, присвоить ей значение “visible”, иначе - “hidden”.
+        let block = 'visible';
+        if (block == 'hidden'){
+            block = 'visible';
+        } else{
+            block = 'hidden';
+        }
+        // 2. Используя if, записать условие: если переменная равна нулю, присвоить ей 1; если меньше нуля - строку “less then zero”; если больше нуля - используя оператор “присвоение”, переменную умножить на 10 (использовать краткую запись).
+        let num = 0;
+        if(num === 0){
+            num = 1;
+        } else if(num < 0){
+            num = 'less then zero';
+        } else{
+            num *= 10;
+        }
+        //3. Дан объект let car = { name: 'Lexus', age: 10, create: 2008, needRepair: false }. Написать условие если возраст машины больше 5 лет то нужно вывести в консоль сообщение 'Need Repair' и свойство needRepair в объекте car изменить на true; иначе изменить на false.
+        let car = { 
+            name: 'Lexus', 
+            age: 10, 
+            create: 2008, 
+            needRepair: false 
+        };
+        if(car.age > 5){
+            console.log('Need Repair');
+            car.needRepair = true;
+        } else{
+            car.needRepair = false;
+        }
+        // 4. Дан объект let item = { name: 'Intel core i7', price: '100$', discount: '15%' }.Написать условие если у item есть поле discount и там есть значение то в объекте item создать поле priceWithDiscount и записать туда цену с учетом скидки и вывести ее в консоль, обратите внимание  что поля discount и price это строки и вам из них нужно получить числа чтобы выполнить расчет. иначе если поля discount нет то вывести просто поле price в консоль.
+        let item = { 
+            name: 'Intel core i7', 
+            price: '100$', 
+            discount: '15%' 
+        }
+        if('discount' in item && Boolean(item.discount) == true){
+            item.priceWithDiscount = parseInt(item.price) - parseInt(item.price)* parseInt(item.discount)/100 + '$';
+            console.log(item.priceWithDiscount);
+        } else{
+            console.log(item.price);
+        }
+
+        // 6. Дан следующий код:
+        let product = {
+            name: 'Яблоко',
+            price: '10$'
+        };
+
+        let min = 10; // минимальная цена
+        let max = 20; // максимальная цена
+
+        //Написать условие если цена товара больше или равна минимальной цене и меньше или равна максимальной цене то вывести в консоль название этого товара, иначе вывести в консоль что товаров не найдено.
+        if(parseInt(product.price)>= min && parseInt(product.price)<=max){
+            console.log(product.name)
+        } else{
+            console.log('товар не неайден')
+        }
+    </script>
+</body>
+</html>
