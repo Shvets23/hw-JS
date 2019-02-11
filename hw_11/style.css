@@ -1,0 +1,13 @@
+span{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid black;
+    padding: 20px;
+    display: none;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+}
+.tab{
+    margin-left: 20px;
+}
